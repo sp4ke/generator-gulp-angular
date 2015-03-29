@@ -61,6 +61,7 @@ module.exports = function(options) {
 <% } else if (props.cssPreprocessor.key === 'stylus') { %>
     .pipe($.stylus()).on('error', options.errorHandler('Stylus'))
 <% } %>
+    .pipe($.csso())
     .pipe($.autoprefixer()).on('error', options.errorHandler('Autoprefixer'))
     .pipe($.sourcemaps.write())
 <% if (props.cssPreprocessor.key === 'ruby-sass') { %>
